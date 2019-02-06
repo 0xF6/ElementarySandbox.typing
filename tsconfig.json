@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "noLib": true
+    },
+    "include": [
+        "*.d.ts"
+    ]
+}
