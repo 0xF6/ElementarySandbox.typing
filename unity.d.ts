@@ -264,3 +264,21 @@ declare enum RenderingPath
      */
     DeferredShading = 3,
 }
+/**
+ * Opaque object sorting mode of a Camera.
+ */
+declare enum OpaqueSortMode
+{
+    /**
+     * Default opaque sorting mode.
+     */
+    Default,
+    /**
+     * Do rough front-to-back sorting of opaque objects.
+     */
+    FrontToBack,
+    /**
+     * Do not sort opaque objects by distance.
+     */
+    NoDistanceSort,
+}
