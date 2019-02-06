@@ -304,6 +304,7 @@ declare enum TransparencySortMode
      */
     CustomAxis,
 }
+
 declare enum CameraType
 {
     /**
@@ -350,4 +351,121 @@ declare enum CameraClearFlags
      * Don't clear anything.
      */
     Nothing = 4,
+}
+
+declare class UCamera extends UBehaviour
+{
+    /**
+     * The near clipping plane distance.
+     */
+    public nearClipPlane: float;
+    /**
+     * The far clipping plane distance.
+     */
+    public farClipPlane: float;
+    /**
+     * The field of view of the camera in degrees.
+     */
+    public fieldOfView: float;
+    /**
+     * The rendering path that should be used, if possible.
+     */
+    public renderingPath: RenderingPath;
+    /**
+     * The rendering path that is currently being used (Read Only).
+     */
+    public readonly actualRenderingPath: RenderingPath;
+
+
+    /**
+     * Revert all camera parameters to default.
+     */
+    public Reset(): void;
+
+    /**
+     * High dynamic range rendering.
+     */
+    public allowHDR: boolean;
+    /**
+     * MSAA rendering.
+     */
+    public allowMSAA: boolean;
+    /**
+     * Dynamic Resolution Scaling.
+     */
+    public allowDynamicResolution: boolean;
+    /**
+     * Should camera rendering be forced into a RenderTexture.
+     */
+    public forceIntoRenderTexture: boolean;
+    /**
+     * Camera's half-size when in orthographic mode.
+     */
+    public orthographicSize: float;
+    /**
+     * Is the camera orthographic (true) or perspective (false)?
+     */
+    public orthographic: boolean;
+    /**
+     * Opaque object sorting mode.
+     */
+    public opaqueSortMode: OpaqueSortMode;
+    /**
+     * Transparent object sorting mode.
+     */
+    public transparencySortMode: TransparencySortMode;
+    /**
+     * Resets this Camera's transparency sort settings to the default. 
+     * Default transparency settings are taken from GraphicsSettings instead of directly from this Camera.
+     */
+    public ResetTransparencySortSettings(): void;
+    /**
+     * An axis that describes the direction along which the distances of 
+     * objects are measured for the purpose of sorting.
+     */
+    public transparencySortAxis: UVector3D;
+    /**
+     * Camera's depth in the camera rendering order.
+     */
+    public depth: float;
+    /**
+     * The aspect ratio (width divided by height).
+     */
+    public aspect: float;
+    /**
+     * Revert the aspect ratio to the screen's aspect ratio.
+     */
+    public ResetAspect(): void;
+    /**
+     * This is used to render parts of the Scene selectively.
+     */
+    public cullingMask: int;
+    /**
+     * Mask to select which layers can trigger events on the camera.
+     */
+    public eventMask: int;
+    /**
+     * How to perform per-layer culling for a Camera.
+     */
+    public layerCullSpherical: boolean;
+    /**
+     * Identifies what kind of camera this is.
+     */
+    public cameraType: CameraType;
+    /**
+     * Per-layer culling distances.
+     */
+    public layerCullDistances: float[];
+    /**
+     * Whether or not the Camera will use occlusion culling during rendering.
+     */
+    public useOcclusionCulling: boolean;
+    /**
+     * The color with which the screen will be cleared.
+     */
+    public backgroundColor: Color;
+    /**
+     * How the camera clears the background.
+     */
+    public clearFlags: CameraClearFlags;
 }
