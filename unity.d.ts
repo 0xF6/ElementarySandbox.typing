@@ -236,3 +236,31 @@ declare class UText
     public get font(): Font;
     public text: string;
 }
+
+
+/**
+ * Rendering path of a Camera.
+ */
+declare enum RenderingPath
+{
+    /**
+     * Use Player Settings.
+     */
+    UsePlayerSettings = -1,
+    /**
+     * Vertex Lit.
+     */
+    VertexLit = 0,
+    /**
+     * Forward Rendering.
+     */
+    Forward = 1,
+    /**
+     * Deferred Lighting (Legacy).
+     */
+    DeferredLighting = 2,
+    /**
+     * Deferred Shading.
+     */
+    DeferredShading = 3,
+}
