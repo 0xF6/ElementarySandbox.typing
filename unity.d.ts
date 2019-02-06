@@ -282,3 +282,25 @@ declare enum OpaqueSortMode
      */
     NoDistanceSort,
 }
+/**
+ * Transparent object sorting mode of a Camera.
+ */
+declare enum TransparencySortMode
+{
+    /**
+     * Default transparency sorting mode.
+     */
+    Default,
+    /**
+     * Perspective transparency sorting mode.
+     */
+    Perspective,
+    /**
+     * Orthographic transparency sorting mode.
+     */
+    Orthographic,
+    /**
+     * Sort objects based on distance along a custom axis.
+     */
+    CustomAxis,
+}
