@@ -11,6 +11,7 @@ declare var self: ElementaryBehaviour;
 declare var particle: ElementaryParticle;
 declare var window: ElementaryWindow;
 declare var Physics2D: ElementaryPhysics2D;
+declare var game: ElementaryGame;
 
 declare type HEXColorString = string;
 declare type SelectorString = string;
@@ -122,8 +123,7 @@ declare var ui: ElementaryUI;
 
 declare class ElementaryGame
 {
-   
-    
+    public MainCamera(): UCamera;
     public get control(): control;
     public get discord(): Discord;
     public get dpi(): float;
@@ -135,5 +135,5 @@ declare class ElementaryGame
     public openURL(url: string);
     public on(event: "lowMemory" | "focusChanged", callback: Function);
 }
-declare var game: ElementaryGame;
+
 
