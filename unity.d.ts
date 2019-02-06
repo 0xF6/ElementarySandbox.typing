@@ -304,3 +304,26 @@ declare enum TransparencySortMode
      */
     CustomAxis,
 }
+declare enum CameraType
+{
+    /**
+     * Used to indicate a regular in-game camera.
+     */
+    Game = 1,
+    /**
+     * Used to indicate that a camera is used for rendering the Scene View in the Editor.
+     */
+    SceneView = 2,
+    /**
+     * Used to indicate a camera that is used for rendering previews in the Editor.
+     */
+    Preview = 4,
+    /**
+     * Used to indicate that a camera is used for rendering VR (in edit mode) in the Editor.
+     */
+    VR = 8,
+    /**
+     * Used to indicate a camera that is used for rendering reflection probes.
+     */
+    Reflection = 16
+}
