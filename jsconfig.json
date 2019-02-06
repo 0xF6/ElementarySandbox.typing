@@ -1,7 +1,7 @@
 {
     "compilerOptions": {
         "target": "ES6",
-        "checkJs": false,
+        "checkJs": true,
         "noLib": true
     },
     "include": [
