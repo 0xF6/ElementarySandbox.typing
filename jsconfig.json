@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "target": "ES6",
+        "checkJs": false,
+        "noLib": true
+    },
+    "include": [
+        "**/*.js",
+        "*.d.ts"
+    ]
+}
