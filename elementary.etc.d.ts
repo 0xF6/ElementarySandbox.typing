@@ -138,9 +138,15 @@ declare class app
     public targetFPS(): int;
 }
 
+declare class YieldWaiter extends MonoBehaviour
+{
+    AddTask(time: float, action: () => void): void;
+}
+
 declare class ElementaryAnimationModule
 {
-    public SmoothChange(from: float, to: float, time: float, callback: (value: float) => void);
+    public SmoothChange(from: float, to: float, time: float, callback: (value: float) => void): void;
+    public SmoothAlpha(go: UGameObject, to: float, time: float): void;
 }
 
 declare enum GraphicsDeviceType

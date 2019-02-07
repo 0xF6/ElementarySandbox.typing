@@ -127,6 +127,7 @@ declare class ElementaryGame
     public get control(): control;
     public get animation(): ElementaryAnimationModule;
     public get info(): ElementaryInfoModule;
+    public get TaskManager() : YieldWaiter;
 
     public MainCamera(): UCamera;
     public get discord(): Discord;
