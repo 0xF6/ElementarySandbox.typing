@@ -469,3 +469,15 @@ declare class UCamera extends UBehaviour
      */
     public clearFlags: CameraClearFlags;
 }
+/**
+ * A class you can derive from if you want to create objects that don't need to be attached to game objects.
+ */
+declare class ScriptableObject extends UObject
+{
+    /**
+     * Creates an instance of a scriptable object.
+     * @param className The type of the ScriptableObject to create, as the name of the type.
+     */
+    public static CreateInstance(className: string): ScriptableObject;
+}
+
