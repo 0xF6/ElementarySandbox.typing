@@ -142,3 +142,56 @@ declare class ElementaryAnimationModule
 {
     public SmoothChange(from: float, to: float, time: float, callback: (value: float) => void);
 }
+
+declare enum GraphicsDeviceType
+{
+    // NONE
+    Null = 4,
+    // Linux
+    OpenGL2 = 0,
+    OpenGLES2 = 8,
+    OpenGLES3 = 11,
+    OpenGLCore = 17,
+    // MultiOS
+    Vulkan = 21,
+    // Windows
+    Direct3D9 = 1,
+    Direct3D11 = 2,
+    Direct3D12 = 18,
+    // Playstation
+    PlayStationVita = 12,
+    PlayStation4 = 13,
+    PlayStation3 = 3,
+    // Nintendo
+    N3DS = 19,
+    Switch = 22,
+    // XBox and Windows Store
+    Xbox360 = 6,
+    XboxOne = 14,
+    XboxOneD3D12 = 23,
+    // MacOS
+    Metal = 16,
+}
+
+declare class CPU
+{
+    public readonly Count: int;
+    public readonly Frequency: int;
+    public readonly Type: string;
+}
+declare class GPU
+{
+    public readonly ShaderLevel: int;
+    public readonly MultiThreaded: boolean;
+    public readonly DeviceName: string;
+    public readonly DeviceType: GraphicsDeviceType;
+    public readonly MemorySize: int;
+}
+declare class ElementaryInfoModule
+{
+    GPU: GPU;
+    CPU: CPU;
+
+    public operatingSystem: string;
+    public operatingSystemFamily: string;
+}
