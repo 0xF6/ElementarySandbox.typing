@@ -123,13 +123,15 @@ declare var ui: ElementaryUI;
 
 declare class ElementaryGame
 {
-    public MainCamera(): UCamera;
+    
     public get control(): control;
+    public get animation(): ElementaryAnimationModule;
+
+    public MainCamera(): UCamera;
     public get discord(): Discord;
     public get dpi(): float;
     public get isEditor(): boolean;
     public get isEditor(): NetworkReachability;
-
     public setResolution(x: int, y: int, z: FullScreenMode);
     public setTargetFrameRate(fps: int);
     public openURL(url: string);

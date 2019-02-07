@@ -137,3 +137,8 @@ declare class app
     public version(): string;
     public targetFPS(): int;
 }
+
+declare class ElementaryAnimationModule
+{
+    public SmoothChange(from: float, to: float, time: float, callback: (value: float) => void);
+}
