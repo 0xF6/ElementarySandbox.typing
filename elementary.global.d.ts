@@ -13,6 +13,18 @@ declare var window: ElementaryWindow;
 declare var Physics2D: ElementaryPhysics2D;
 declare var game: ElementaryGame;
 
+/**
+ * Content folder
+ */
+declare var _content: string;
+/**
+ * Mods folder
+ */
+declare var _mods: string;
+
+
+declare function folder(x: string);
+
 declare type HEXColorString = string;
 declare type SelectorString = string;
 declare function css(x: HEXColorString): Color;
