@@ -147,6 +147,7 @@ declare class ElementaryAnimationModule
 {
     public SmoothChange(from: float, to: float, time: float, callback: (value: float) => void): void;
     public SmoothAlpha(go: UGameObject, to: float, time: float): void;
+    public SmoothMove(go: RectTransform, to: UVector3D, time: float): void;
 }
 
 declare enum GraphicsDeviceType
