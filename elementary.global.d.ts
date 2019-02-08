@@ -22,7 +22,8 @@ declare var _content: string;
  */
 declare var _mods: string;
 
-
+declare function Vector3(x: float, y: float, z: float): UVector3D;
+declare function Vector2(x: float, y: float): UVector2D;
 declare function folder(x: string);
 
 declare type HEXColorString = string;
