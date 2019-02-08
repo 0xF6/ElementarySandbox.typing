@@ -482,7 +482,21 @@ declare class ScriptableObject extends UObject
 }
 
 
-///<reference path="unity.d.ts"/>
+// TODO
+declare class Light extends UBehaviour
+{
+    /**
+     * The Intensity of a light is multiplied with the Light color.
+     */
+    public intensity: float;
+}
+
+
+
+//==----------------------------------
+
+
+
 
 
 

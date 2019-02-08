@@ -9,9 +9,11 @@ declare function trace(x: string);
 declare var go: ElementaryBehaviour;
 declare var self: ElementaryBehaviour;
 declare var particle: ElementaryParticle;
+
 declare var window: ElementaryWindow;
 declare var Physics2D: ElementaryPhysics2D;
 declare var game: ElementaryGame;
+declare var light: ElementaryLight;
 
 /**
  * Content folder
@@ -154,3 +156,8 @@ declare class ElementaryGame
 }
 
 
+declare class ElementaryLight
+{
+    public GetGlobal(): Light;
+    public IsAvailable(): boolean;
+}
