@@ -138,11 +138,13 @@ declare var ui: ElementaryUI;
 
 declare class ElementaryGame
 {
-    
     public get control(): control;
     public get animation(): ElementaryAnimationModule;
     public get info(): ElementaryInfoModule;
-    public get TaskManager() : YieldWaiter;
+    public get audio(): ElementaryAudio;
+    public get setting(): ElementarySettting;
+    public TaskManager() : YieldWaiter;
+    
 
     public MainCamera(): UCamera;
     public get discord(): Discord;
@@ -153,11 +155,37 @@ declare class ElementaryGame
     public setTargetFrameRate(fps: int);
     public openURL(url: string);
     public on(event: "lowMemory" | "focusChanged", callback: Function);
+
+    public Resources(path: string): UObject & AudioClip;
+    
 }
 
+declare class ElementaryAudio
+{
+    public PlayShot(target: UGameObject, clip: AudioClip): void;
+    public PlayDelay(target: UGameObject, clip: AudioClip, time: float): void;
+    public PlayScheduled(target: UGameObject, clip: AudioClip, time: float): void;
+    public IsAvailable(go: UGameObject): boolean;
+    public EnableSource(go: UGameObject): void;
+}
 
 declare class ElementaryLight
 {
     public GetGlobal(): Light;
     public IsAvailable(): boolean;
+}
+
+
+declare class ElementarySettting
+{
+    public static setInt(key: string, value: int): void;
+    public static getInt(key: string, defaultValue?: int): int;
+    public static setFloat(key: string, value: float): void;
+    public static getFloat(key: string, defaultValue?: float): float;
+    public static setString(key: string, value: string): void;
+    public static getString(key: string, defaultValue?: string): string;
+    public static hasKey(key: string): boolean;
+    public static deleteKey(key: string): void;
+    public static deleteAll(): void;
+    public static save(): void;
 }

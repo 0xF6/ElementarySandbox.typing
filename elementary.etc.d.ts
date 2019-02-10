@@ -116,6 +116,8 @@ declare class ElementaryBehaviour extends MonoBehaviour
     public onQuit();
     public onDestroy();
     public onUpdate();
+
+    public EnablePhysicsContact(): void;
 }
 
 declare class control
