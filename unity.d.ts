@@ -111,7 +111,7 @@ declare class UComponent extends UObject
      * Returns the component with name type if the game object has one attached, null if it doesn't.
      * @param type The type of Component to retrieve.
      */
-    public GetComponent(type: string) : UComponent & PostProcessVolume
+    public GetComponent(type: string) : UComponent & PostProcessVolume & PhysicsComponent
     /**
      * Calls the method named methodName on every MonoBehaviour in this game object
      * @param name Name of the method to call.
@@ -119,6 +119,97 @@ declare class UComponent extends UObject
      */
     public SendMessage(name: string, obj?: object, opt?: SendMessageOptions);
 }
+declare class PhysicsComponent extends MonoBehaviour
+{
+    public onTriggerEnter: UnityEventGeneric<UGameObject>;
+    public onTriggerExit: UnityEventGeneric<UGameObject>;
+    public onTriggerStay: UnityEventGeneric<UGameObject>;
+}
+
+declare enum AudioClipLoadType
+{
+    /**
+     * The audio data is decompressed when the audio clip is loaded.
+     */
+    DecompressOnLoad,
+    /**
+     * The audio data of the clip will be kept in memory in compressed form.
+     */
+    CompressedInMemory,
+    /**
+     * Streams audio data from disk.
+     */
+    Streaming
+}
+
+declare enum AudioDataLoadState
+{
+    /**
+     * Value returned by AudioClip.loadState for an AudioClip 
+     * that has no audio data loaded and where loading has not been initiated yet.
+     */
+    Unloaded,
+    /**
+     * Value returned by AudioClip.loadState for an AudioClip that is currently loading audio data.
+     */
+    Loading,
+    /**
+     * Value returned by AudioClip.loadState for an AudioClip that has succeeded loading its audio data.
+     */
+    Loaded,
+    /**
+     * Value returned by AudioClip.loadState for an AudioClip that has failed loading its audio data.
+     */
+    Failed
+}
+declare class AudioClip extends UObject
+{
+    /**
+     * The length of the audio clip in seconds. (Read Only)
+     */
+    public readonly length: float;
+
+    /**
+     * The length of the audio clip in samples. (Read Only)
+     */
+    public readonly samples: int;
+    /**
+     * The number of channels in the audio clip. (Read Only)
+     */
+    public readonly channels: int;
+    /**
+     * The sample frequency of the clip in Hertz. (Read Only)
+     */
+    public readonly frequency: int;
+    /**
+     * Returns true if this audio clip is ambisonic (read-only).
+     */
+    public readonly ambisonic: boolean;
+    /**
+     * Corresponding to the "Load In Background" flag in the inspector, 
+     * when this flag is set, the loading will happen delayed without blocking the main thread.
+     */
+    public loadInBackground: boolean;
+    /**
+     * The load type of the clip (read-only).
+     */
+    public readonly loadType: AudioClipLoadType;
+    /**
+     * Loads the audio data of a clip. 
+     * Clips that have "Preload Audio Data" set will load the audio data automatically.
+     */
+    public LoadAudioData(): boolean;
+    /**
+     * Unloads the audio data associated with the clip. 
+     * This works only for AudioClips that are based on actual sound file assets.
+     */
+    public UnloadAudioData(): boolean;
+    /**
+     * Returns the current load state of the audio data associated with an AudioClip.
+     */
+    public loadState: AudioDataLoadState;
+}
+
 /**
  * Base class for all entities in Unity Scenes.
  */
@@ -219,8 +310,14 @@ declare class Color
 }
 declare class UnityEvent
 {
-    public AddListener(x: Function);
+    public AddListener(x: () => void);
 }
+declare class UnityEventGeneric<T>
+{
+    public AddListener(x: (x: T) => void);
+}
+
+
 
 declare class Selectable
 {
