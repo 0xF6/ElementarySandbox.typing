@@ -6,7 +6,7 @@ declare var yes: true;
 declare var no: false;
 declare function trace(x: string);
 
-declare var go: ElementaryBehaviour;
+declare var go: ElementaryBehaviour & {};
 declare var self: ElementaryBehaviour;
 declare var particle: ElementaryParticle;
 
@@ -14,6 +14,10 @@ declare var window: ElementaryWindow;
 declare var Physics2D: ElementaryPhysics2D;
 declare var game: ElementaryGame;
 declare var light: ElementaryLight;
+declare var ui: ElementaryUI;
+declare var sys: ElementarySystem;
+
+declare var Random: URandom;
 
 /**
  * Content folder
@@ -36,8 +40,7 @@ declare function $(x: SelectorString):
     UGameObject & 
     MonoBehaviour & 
     UText & 
-    UComponent & 
-    DiscordController
+    UComponent;
 
 /**
  * 
@@ -63,12 +66,25 @@ declare class ElementaryParticle extends ElementaryBehaviour
     public ComplexBody: Rigidbody2D;
     public MagneticPole: ElectroMagnetic;
 
+    /**
+     * @implements Need Override in script component
+     */
+    @NeedOverride
     public getMass(): float;
+    /**
+     * @implements Need Override in script component
+     */
+    @NeedOverride
     public getLifeTime(): float;
+    /**
+     * @implements Need Override in script component
+     */
+    @NeedOverride
     public getQuantumNumber(qName: string): float;
     /**
-     * Get Quark grid list
+     * @implements Need Override in script component
      */
+    @NeedOverride
     public getQuarkGrid(): string;
 }
 /**
@@ -91,25 +107,6 @@ declare class ElementaryWindow extends UIScriptableComponent
     public AddItem(i: ParticleItem);
 }
 
-
-declare class DiscordController extends MonoBehaviour
-{
-    /**
-     * OnConnected Discord Event
-     */
-    public onConnect: UnityEvent;
-    /**
-     * Is Authed in Discord API
-     */
-    public IsAuthed(): boolean;
-    /**
-     * Set Rich Preset
-     * @param title Current Title
-     * @param desc Current Description
-     */
-    public SetPreset(title: string, desc: string);
-}
-
 declare class ElementaryPhysics2D
 {
     public Simulate(step: float);
@@ -126,7 +123,7 @@ declare class ElementarySystem
     public fixedDelta(): float;
     public playTime(): float;
 }
-declare var sys: ElementarySystem;
+
 
 declare class ElementaryUI 
 {
@@ -134,7 +131,6 @@ declare class ElementaryUI
     public warn(x: string);
     public error(x: string);
 }
-declare var ui: ElementaryUI;
 
 declare class ElementaryGame
 {
@@ -147,7 +143,11 @@ declare class ElementaryGame
     
 
     public MainCamera(): UCamera;
-    public get discord(): Discord;
+    /**
+     * Getting Discord controller
+     * @summary CALL ONLY IN onStart
+     */
+    public discord(): Discord;
     public get dpi(): float;
     public get isEditor(): boolean;
     public get isEditor(): NetworkReachability;

@@ -124,7 +124,378 @@ declare class PhysicsComponent extends MonoBehaviour
     public onTriggerEnter: UnityEventGeneric<UGameObject>;
     public onTriggerExit: UnityEventGeneric<UGameObject>;
     public onTriggerStay: UnityEventGeneric<UGameObject>;
+
+    public onColliderEnter: UnityEventGeneric<UGameObject>;
+    public onColliderExit: UnityEventGeneric<UGameObject>;
+    public onColliderStay: UnityEventGeneric<UGameObject>;
+
+    public IsTrigger(): boolean;
+    public EnableTrigger(): void;
+    public Collider: Collider2D;
 }
+declare class PhysicsMaterial2D extends UObject
+{
+    public bounciness: float;
+    public friction: float;
+}
+
+declare class Rigidbody2D extends UComponent
+{
+    public position: UVector2D;
+    public rotation: float;
+    public velocity: UVector2D;
+    public angularVelocity: float;
+    public useAutoMass: boolean;
+    public mass: float;
+    public sharedMaterial: PhysicsMaterial2D;
+    public centerOfMass: UVector2D;
+    public worldCenterOfMass: UVector2D;
+    public inertia: float;
+    public drag: float;
+    public angularDrag: float;
+    public gravityScale: float;
+    public bodyType: RigidbodyType2D;
+    public useFullKinematicContacts: boolean;
+    public isKinematic: boolean;
+    public fixedAngle: boolean;
+    public freezeRotation: boolean;
+    public constraints: RigidbodyConstraints2D;
+    public simulated: boolean;
+    public interpolation: RigidbodyInterpolation2D;
+    public sleepMode: RigidbodySleepMode2D;
+    public collisionDetectionMode: CollisionDetectionMode2D;
+    public attachedColliderCount: int;
+    public MovePosition(position: UVector2D): void;
+    public MoveRotation(angle: float): void;
+    public IsSleeping(): boolean;
+    public IsAwake(): boolean;
+    public Sleep(): void;
+    public WakeUp(): void;
+    public IsTouching(collider: Collider2D): boolean;
+    public IsTouching(collider: Collider2D, contactFilter: ContactFilter2D): boolean;
+    public IsTouching(contactFilter: ContactFilter2D): boolean;
+    public IsTouchingLayers(): boolean;
+    public IsTouchingLayers(layerMask: int): boolean;
+    public OverlapPoint(point: UVector2D): boolean;
+    public Distance(collider: Collider2D): ColliderDistance2D;
+    public AddForce(force: UVector2D): void;
+    public AddForce(force: UVector2D, mode: ForceMode2D): void;
+    public AddRelativeForce(relativeForce: UVector2D): void;
+    public AddRelativeForce(relativeForce: UVector2D, mode: ForceMode2D): void;
+    public AddForceAtPosition(force: UVector2D, position: UVector2D): void;
+    public AddForceAtPosition(force: UVector2D, position: UVector2D, mode: ForceMode2D): void;
+    public AddTorque(torque: float): void;
+    public AddTorque(torque: float, mode: ForceMode2D): void;
+    public GetPoint(point: UVector2D): UVector2D;
+    public GetRelativePoint(relativePoint: UVector2D): UVector2D;
+    public GetVector(vector: UVector2D): UVector2D;
+    public GetRelativeVector(relativeVector: UVector2D): UVector2D;
+    public GetPointVelocity(point: UVector2D): UVector2D;
+    public GetRelativePointVelocity(relativePoint: UVector2D): UVector2D;
+    public OverlapCollider(contactFilter: ContactFilter2D, results: Collider2D[]): int;
+    public GetContacts(contacts: ContactPoint2D[]): int;
+    public GetContacts(contactFilter: ContactFilter2D, contacts: ContactPoint2D[]): int;
+    public GetContacts(colliders: Collider2D[]): int;
+    public GetContacts(contactFilter: ContactFilter2D, colliders: Collider2D[]): int;
+    public GetAttachedColliders(results: Collider2D[]): int;
+    public Cast(direction: UVector2D, results: RaycastHit2D[]): int;
+    public Cast(direction: UVector2D, results: RaycastHit2D[], distance: float): int;
+    public Cast(direction: UVector2D, contactFilter: ContactFilter2D, results: RaycastHit2D[]): int;
+    public Cast(direction: UVector2D, contactFilter: ContactFilter2D, results: RaycastHit2D[], distance: float): int;
+}
+declare enum ForceMode2D
+{
+    Force = 0,
+    Impulse = 1,
+}
+declare enum CollisionDetectionMode2D
+{
+    Discrete = 0,
+    Discrete = 0,
+    Continuous = 1,
+}
+declare enum RigidbodySleepMode2D
+{
+    NeverSleep = 0,
+    StartAwake = 1,
+    StartAsleep = 2,
+}
+declare enum RigidbodyInterpolation2D
+{
+    None = 0,
+    Interpolate = 1,
+    Extrapolate = 2,
+}
+declare enum RigidbodyConstraints2D
+{
+    None = 0,
+    FreezePositionX = 1,
+    FreezePositionY = 2,
+    FreezePosition = 3,
+    FreezeRotation = 4,
+    FreezeAll = 7,
+}
+declare enum RigidbodyType2D
+{
+    Dynamic = 0,
+    Kinematic = 1,
+    Static = 2,
+}
+
+declare class SpriteRenderer extends Renderer
+{
+    public sprite: Sprite;
+    public drawMode: SpriteDrawMode;
+    public size: UVector2D;
+    public adaptiveModeThreshold: float;
+    public tileMode: SpriteTileMode;
+    public color: Color;
+    public maskInteraction: SpriteMaskInteraction;
+    public flipX: boolean;
+    public flipY: boolean;
+    public spriteSortPoint: SpriteSortPoint;
+}
+declare enum SpriteSortPoint
+{
+    Center = 0,
+    Pivot = 1,
+}
+declare enum SpriteMaskInteraction
+{
+    None = 0,
+    VisibleInsideMask = 1,
+    VisibleOutsideMask = 2,
+}
+declare enum SpriteTileMode
+{
+    Continuous = 0,
+    Adaptive = 1,
+}
+declare enum SpriteDrawMode
+{
+    Simple = 0,
+    Sliced = 1,
+    Tiled = 2,
+}
+
+
+declare enum QuarkType
+{
+    Unk = 0,
+    d = 1,
+    u = 2,
+    s = 3,
+    c = 4,
+    b = 5,
+    t = 6,
+}
+
+
+declare class Renderer extends UComponent
+{
+    public lightmapTilingOffset: Vector4;
+    public lightProbeAnchor: Transform;
+    public castShadows: boolean;
+    public motionVectors: boolean;
+    public useLightProbes: boolean;
+    public bounds: Bounds;
+    public enabled: boolean;
+    public isVisible: boolean;
+    public shadowCastingMode: ShadowCastingMode;
+    public receiveShadows: boolean;
+    public motionVectorGenerationMode: MotionVectorGenerationMode;
+    public lightProbeUsage: LightProbeUsage;
+    public reflectionProbeUsage: ReflectionProbeUsage;
+    public renderingLayerMask: int;
+    public rendererPriority: int;
+    public sortingLayerName: string;
+    public sortingLayerID: int;
+    public sortingOrder: int;
+    public allowOcclusionWhenDynamic: boolean;
+    public isPartOfStaticBatch: boolean;
+    public worldToLocalMatrix: Matrix4x4;
+    public localToWorldMatrix: Matrix4x4;
+    public lightProbeProxyVolumeOverride: GameObject;
+    public probeAnchor: Transform;
+    public lightmapIndex: int;
+    public realtimeLightmapIndex: int;
+    public lightmapScaleOffset: Vector4;
+    public realtimeLightmapScaleOffset: Vector4;
+    public materials: Material[];
+    public material: Material;
+    public sharedMaterial: Material;
+    public sharedMaterials: Material[];
+    public HasPropertyBlock(): boolean;
+    public SetPropertyBlock(properties: MaterialPropertyBlock): void;
+    public SetPropertyBlock(properties: MaterialPropertyBlock, materialIndex: int): void;
+    public GetPropertyBlock(properties: MaterialPropertyBlock): void;
+    public GetPropertyBlock(properties: MaterialPropertyBlock, materialIndex: int): void;
+    public GetMaterials(m: List<Material>): void;
+    public GetSharedMaterials(m: List<Material>): void;
+    public GetClosestReflectionProbes(result: List<ReflectionProbeBlendInfo>): void;
+}
+declare enum MotionVectorGenerationMode
+{
+    Camera = 0,
+    Object = 1,
+    ForceNoMotion = 2,
+}
+declare enum ReflectionProbeUsage
+{
+    Off = 0,
+    BlendProbes = 1,
+    BlendProbesAndSkybox = 2,
+    Simple = 3,
+}
+declare enum LightProbeUsage
+{
+    Off = 0,
+    BlendProbes = 1,
+    UseProxyVolume = 2,
+    CustomProvided = 4,
+}
+declare enum ShadowCastingMode
+{
+    Off = 0,
+    On = 1,
+    TwoSided = 2,
+    ShadowsOnly = 3,
+}
+
+declare class Collider2D extends UBehaviour
+{
+    public density: float;
+    public isTrigger: boolean;
+    public usedByEffector: boolean;
+    public usedByComposite: boolean;
+    public composite: CompositeCollider2D;
+    public offset: UVector2D;
+    public attachedRigidbody: Rigidbody2D;
+    public shapeCount: int;
+    public bounds: Bounds;
+    public sharedMaterial: PhysicsMaterial2D;
+    public friction: float;
+    public bounciness: float;
+    public IsTouching(collider: Collider2D): boolean;
+    public IsTouching(collider: Collider2D, contactFilter: ContactFilter2D): boolean;
+    public IsTouching(contactFilter: ContactFilter2D): boolean;
+    public IsTouchingLayers(): boolean;
+    public IsTouchingLayers(layerMask: int): boolean;
+    public OverlapPoint(point: UVector2D): boolean;
+    public Distance(collider: Collider2D): ColliderDistance2D;
+    public OverlapCollider(contactFilter: ContactFilter2D, results: Collider2D[]): int;
+    public GetContacts(contacts: ContactPoint2D[]): int;
+    public GetContacts(contactFilter: ContactFilter2D, contacts: ContactPoint2D[]): int;
+    public GetContacts(colliders: Collider2D[]): int;
+    public GetContacts(contactFilter: ContactFilter2D, colliders: Collider2D[]): int;
+    public Cast(direction: UVector2D, results: RaycastHit2D[]): int;
+    public Cast(direction: UVector2D, results: RaycastHit2D[], distance: float): int;
+    public Cast(direction: UVector2D, results: RaycastHit2D[], distance: float, ignoreSiblingColliders: boolean): int;
+    public Cast(direction: UVector2D, contactFilter: ContactFilter2D, results: RaycastHit2D[]): int;
+    public Cast(direction: UVector2D, contactFilter: ContactFilter2D, results: RaycastHit2D[], distance: float): int;
+    public Cast(direction: UVector2D, contactFilter: ContactFilter2D, results: RaycastHit2D[], distance: float, ignoreSiblingColliders: boolean): int;
+    public Raycast(direction: UVector2D, results: RaycastHit2D[]): int;
+    public Raycast(direction: UVector2D, results: RaycastHit2D[], distance: float): int;
+    public Raycast(direction: UVector2D, results: RaycastHit2D[], distance: float, layerMask: int): int;
+    public Raycast(direction: UVector2D, results: RaycastHit2D[], distance: float, layerMask: int, minDepth: float): int;
+    public Raycast(direction: UVector2D, results: RaycastHit2D[], distance: float, layerMask: int, minDepth: float, maxDepth: float): int;
+    public Raycast(direction: UVector2D, contactFilter: ContactFilter2D, results: RaycastHit2D[]): int;
+    public Raycast(direction: UVector2D, contactFilter: ContactFilter2D, results: RaycastHit2D[], distance: float): int;
+}
+declare class Bounds
+{
+    public center: UVector3D;
+    public size: UVector3D;
+    public extents: UVector3D;
+    public min: UVector3D;
+    public max: UVector3D;
+    public GetHashCode(): int;
+    public Equals(other: any): boolean;
+    public Equals(other: Bounds): boolean;
+    public static op_Equality(lhs: Bounds, rhs: Bounds): boolean;
+    public static op_Inequality(lhs: Bounds, rhs: Bounds): boolean;
+    public SetMinMax(min: UVector3D, max: UVector3D): void;
+    public Encapsulate(point: UVector3D): void;
+    public Encapsulate(bounds: Bounds): void;
+    public Expand(amount: float): void;
+    public Expand(amount: UVector3D): void;
+    public Intersects(bounds: Bounds): boolean;
+    public IntersectRay(ray: Ray): boolean;
+    public IntersectRay(ray: Ray, distance: float): boolean;
+    public ToString(): string;
+    public ToString(format: string): string;
+    public Contains(point: UVector3D): boolean;
+    public SqrDistance(point: UVector3D): float;
+    public ClosestPoint(point: UVector3D): UVector3D;
+}
+
+declare class ContactPoint2D
+{
+    public point: UVector2D;
+    public normal: UVector2D;
+    public separation: float;
+    public normalImpulse: float;
+    public tangentImpulse: float;
+    public relativeVelocity: UVector2D;
+    public collider: Collider2D;
+    public otherCollider: Collider2D;
+    public rigidbody: Rigidbody2D;
+    public otherRigidbody: Rigidbody2D;
+    public enabled: boolean;
+}
+declare class RaycastHit2D
+{
+    public centroid: UVector2D;
+    public point: UVector2D;
+    public normal: UVector2D;
+    public distance: float;
+    public fraction: float;
+    public collider: Collider2D;
+    public rigidbody: Rigidbody2D;
+    public transform: Transform;
+    public CompareTo(other: RaycastHit2D): int;
+}
+
+declare class ContactFilter2D
+{
+    public useTriggers: boolean;
+    public useLayerMask: boolean;
+    public useDepth: boolean;
+    public useOutsideDepth: boolean;
+    public useNormalAngle: boolean;
+    public useOutsideNormalAngle: boolean;
+    public layerMask: LayerMask;
+    public minDepth: float;
+    public maxDepth: float;
+    public minNormalAngle: float;
+    public maxNormalAngle: float;
+    public static NormalAngleUpperLimit: float;
+    public isFiltering: boolean;
+    public NoFilter(): ContactFilter2D;
+    public ClearLayerMask(): void;
+    public SetLayerMask(layerMask: LayerMask): void;
+    public ClearDepth(): void;
+    public SetDepth(minDepth: float, maxDepth: float): void;
+    public ClearNormalAngle(): void;
+    public SetNormalAngle(minNormalAngle: float, maxNormalAngle: float): void;
+    public IsFilteringTrigger(collider: Collider2D): boolean;
+    public IsFilteringLayerMask(obj: GameObject): boolean;
+    public IsFilteringDepth(obj: GameObject): boolean;
+    public IsFilteringNormalAngle(normal: UVector2D): boolean;
+    public IsFilteringNormalAngle(angle: float): boolean;
+}
+
+declare class LayerMask
+{
+    public value: int;
+    public static LayerToName(layer: int): string;
+    public static NameToLayer(layerName: string): int;
+    public static GetMask(layerNames: string[]): int;
+}
+
+
+
+
 
 declare enum AudioClipLoadType
 {
@@ -238,7 +609,7 @@ declare class UGameObject extends UObject
      * Returns the component with name type if the game object has one attached, null if it doesn't.
      * @param type The type of Component to retrieve.
      */
-    public GetComponent(type: string) : UComponent
+    public GetComponent(type: string) : UComponent & PostProcessVolume & PhysicsComponent
 
     /**
      * Returns one active GameObject tagged tag. Returns undefined if no GameObject was found.
@@ -737,4 +1108,10 @@ declare class PostProcessProfile extends ScriptableObject
      * Returns settings for a given effect type name.
      */
     public GetSetting(name: string): PostProcessEffectSettings & DepthOfField;
+}
+
+declare class URandom
+{
+    public seed: int;
+    public Range(min: number, max: number): number;
 }

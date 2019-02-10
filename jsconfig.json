@@ -2,7 +2,8 @@
     "compilerOptions": {
         "target": "ES6",
         "checkJs": true,
-        "noLib": true
+        "noLib": true,
+        "experimentalDecorators": true
     },
     "include": [
         "**/*.js",

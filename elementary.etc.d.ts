@@ -110,14 +110,38 @@ declare class ElementaryBehaviour extends MonoBehaviour
 
     public get GUID(): Guid;
 
+    /**
+     * @implements Need Override in script component, optional
+     */
+    @NeedOverride
     public onAwake();
+    /**
+     * @implements Need Override in script component, optional
+     */
+    @NeedOverride
     public onStart();
+    /**
+     * @implements Need Override in script component, optional
+     */
+    @NeedOverride
     public onLate();
+    /**
+     * @implements Need Override in script component, optional
+     */
+    @NeedOverride
     public onQuit();
+    /**
+     * @implements Need Override in script component, optional
+     */
+    @NeedOverride
     public onDestroy();
+    /**
+     * @implements Need Override in script component, optional
+     */
+    @NeedOverride
     public onUpdate();
 
-    public EnablePhysicsContact(): void;
+    public EnablePhysicsContact(): PhysicsComponent;
 }
 
 declare class control
@@ -130,7 +154,24 @@ declare class control
 }
 declare class Discord
 {
-    public login(): string;
+    /**
+     * Current Login
+     */
+    public login: string;
+    /**
+     * OnConnected Discord Event
+     */
+    public onConnect: UnityEvent;
+    /**
+     * Is Authed in Discord API
+     */
+    public IsAuthed(): boolean;
+    /**
+     * Set Rich Preset
+     * @param title Current Title
+     * @param desc Current Description
+     */
+    public SetPreset(title: string, desc: string);
 }
 declare class app
 {
@@ -204,3 +245,67 @@ declare class ElementaryInfoModule
     public operatingSystem: string;
     public operatingSystemFamily: string;
 }
+
+declare class ElectroMagnetic extends MonoBehaviour
+{
+    public readonly IsAffectMagnetic;
+
+    public SetStableParticle(isStable: boolean): void;
+    public IsOwnerPole(gen: GeneratorMagneticImpulse): boolean;
+    public IsFreeOwner(): boolean;
+    public TriggerMagneticPole(generator: GeneratorMagneticImpulse): void;
+    public TriggerLostMagneticPole(): void;
+    public getPositionGenerator(): UVector3D;
+    public GetRandomTransformVector3(): UVector3D;
+}
+declare class GeneratorMagneticImpulse extends MonoBehaviour
+{
+    public LayersToPull: LayerMask;
+    public RadiusPull: float;
+}
+
+declare class QuarkComponent extends MonoBehaviour
+{
+    public quarkList: Quark[];
+    public quarkListInternal: string[];
+    public ParticleBase: ElementaryParticle;
+    public TriggerAvailableQuark(q: Quark[]): void;
+    public IsAvailable(): boolean;
+    public Apply(cmp: QuarkComponent, defined: Quark[], generatedEnergy: Energy): void;
+    public Extract(): Quark[];
+    public getNuclonCount(): int;
+    public getNuclon(): Quark[];
+    public Collapse(quark: Quark[]): void;
+    public IsAvailable(type: QuarkType): boolean;
+}
+declare class Quark
+{
+    public Name: string;
+    public Symbol: string;
+    public Type: QuarkType;
+    public EChange: ElectricChange;
+    public Mass: Energy;
+    public IsAnti(): boolean;
+    public ToString(): string;
+}
+declare class ElectricChange
+{
+    public Unit: string;
+    public IsPositive: boolean;
+    public Value: string;
+}
+declare class SpriteGlowEffect extends MonoBehaviour
+{
+    public Renderer: SpriteRenderer;
+    public GlowColor: Color;
+    public GlowBrightness: float;
+    public OutlineWidth: int;
+    public AlphaThreshold: float;
+    public DrawOutside: boolean;
+    public EnableInstancing: boolean;
+}
+
+
+//===--------------- Decorators
+
+declare function NeedOverride(constructor: Function){}
