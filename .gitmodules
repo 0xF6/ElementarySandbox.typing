@@ -1,4 +1,0 @@
-[submodule "mods"]
-	path = mods
-	url = https://github.com/0xF6/ElementarySandbox.Core.git
-	branch = master
