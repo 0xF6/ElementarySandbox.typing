@@ -181,7 +181,7 @@ declare global
     }
 
     interface TouchComponent extends MonoBehaviour {
-        on(event: uiEvent, f: (x: PointerEventData) => {});
+        on(event: uiEvent, f: (x: PointerEventData) => void);
     }
     
     interface ElementaryBehaviour extends MonoBehaviour {

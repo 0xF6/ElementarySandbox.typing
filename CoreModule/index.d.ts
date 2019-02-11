@@ -488,7 +488,7 @@ declare global
          * Returns the component with name type if the game object has one attached, null if it doesn't.
          * @param type The type of Component to retrieve.
          */
-        GetComponent(type: string): UComponent & PostProcessVolume & PhysicsComponent
+        GetComponent<T>(type: string): T
         /**
          * Calls the method named methodName on every MonoBehaviour in this game object
          * @param name Name of the method to call.
