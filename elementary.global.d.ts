@@ -1,4 +1,5 @@
 ///<reference path="unity.d.ts"/>
+
 ///<reference path="elementary.etc.d.ts"/>
 
 declare var none: "empty";
@@ -16,6 +17,8 @@ declare var game: ElementaryGame;
 declare var light: ElementaryLight;
 declare var ui: ElementaryUI;
 declare var sys: ElementarySystem;
+declare var input: UInput;
+declare var time: UTime;
 
 declare var Random: URandom;
 

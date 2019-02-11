@@ -1,3 +1,4 @@
+///<reference path="unity.core.d.ts"/>
 declare type float = number;
 declare type int = number;
 declare type PrimitiveType = "Sphere" | "Capsule" | "Cylinder" | "Cube" | "Plane" | "Quad";
@@ -92,6 +93,24 @@ declare class UTransform
      * The parent of the transform.
      */
     public parent: UTransform;
+}
+
+
+export enum DeviceOrientation
+{
+    Unknown = 0,
+    Portrait = 1,
+    PortraitUpsideDown = 2,
+    LandscapeLeft = 3,
+    LandscapeRight = 4,
+    FaceUp = 5,
+    FaceDown = 6,
+}
+export enum IMECompositionMode
+{
+    Auto = 0,
+    On = 1,
+    Off = 2,
 }
 declare class UComponent extends UObject
 {

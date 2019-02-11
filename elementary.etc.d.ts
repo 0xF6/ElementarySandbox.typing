@@ -56,6 +56,53 @@ declare class RaycastResult
      */
     public isValid: boolean;
 }
+declare class UInput
+{
+    public  simulateMouseWithTouches: boolean;
+    public  anyKey: boolean;
+    public  anyKeyDown: boolean;
+    public  inputString: string;
+    public  mousePosition: UVector3D;
+    public  mouseScrollDelta: UVector2D;
+    public  imeCompositionMode: IMECompositionMode;
+    public  compositionString: string;
+    public  imeIsSelected: boolean;
+    public  compositionCursorPos: UVector2D;
+    public  eatKeyPressOnTextFieldFocus: boolean;
+    public  mousePresent: boolean;
+    public  touchCount: int;
+    public  touchPressureSupported: boolean;
+    public  stylusTouchSupported: boolean;
+    public  touchSupported: boolean;
+    public  multiTouchEnabled: boolean;
+    public  isGyroAvailable: boolean;
+    public  deviceOrientation: DeviceOrientation;
+    public  acceleration: UVector3D;
+    public  compensateSensors: boolean;
+    public  accelerationEventCount: int;
+    public  backButtonLeavesApp: boolean;
+    public  location: LocationService;
+    public  compass: Compass;
+    public  gyro: Gyroscope;
+    public  touches: Touch[];
+    public  accelerationEvents: AccelerationEvent[];
+    public  GetAxis(axisName: string): float;
+    public  GetAxisRaw(axisName: string): float;
+    public  GetButton(buttonName: string): boolean;
+    public  GetButtonDown(buttonName: string): boolean;
+    public  GetButtonUp(buttonName: string): boolean;
+    public  GetMouseButton(button: int): boolean;
+    public  GetMouseButtonDown(button: int): boolean;
+    public  GetMouseButtonUp(button: int): boolean;
+    public  ResetInputAxes(): void;
+    public  IsJoystickPreconfigured(joystickName: string): boolean;
+    public  GetJoystickNames(): string[];
+    public  GetTouch(index: int): Touch;
+    public  GetAccelerationEvent(index: int): AccelerationEvent;
+    public  GetKey(name: string): boolean;
+    public  GetKeyUp(name: string): boolean;
+    public  GetKeyDown(name: string): boolean;
+}
 declare type PressedButton = "Left" | "Right" | "Middle";
 declare class PointerEventData
 {
@@ -100,6 +147,30 @@ declare class UIScriptableComponent extends ElementaryBehaviour
     public on(event: uiEvent, f: (x: PointerEventData) => {});
 }
 
+declare class TouchComponent extends MonoBehaviour
+{
+    public on(event: uiEvent, f: (x: PointerEventData) => {});
+}
+declare class UTime
+{
+    public  timeSinceLevelLoad: float;
+    public  deltaTime: float;
+    public  fixedTime: float;
+    public  unscaledTime: float;
+    public  fixedUnscaledTime: float;
+    public  unscaledDeltaTime: float;
+    public  fixedUnscaledDeltaTime: float;
+    public  fixedDeltaTime: float;
+    public  maximumDeltaTime: float;
+    public  smoothDeltaTime: float;
+    public  maximumParticleDeltaTime: float;
+    public  timeScale: float;
+    public  frameCount: int;
+    public  renderedFrameCount: int;
+    public  realtimeSinceStartup: float;
+    public  captureFramerate: int;
+    public  inFixedTimeStep: boolean;
+}
 declare class ElementaryBehaviour extends MonoBehaviour
 {
     public get PathToModule(): string;
@@ -140,8 +211,14 @@ declare class ElementaryBehaviour extends MonoBehaviour
      */
     @NeedOverride
     public onUpdate();
-
+    /**
+     * Init PhysicsComponent for use event colliders\triggers
+     */
     public EnablePhysicsContact(): PhysicsComponent;
+    /**
+     * Init TouchComponent for use Pointer events
+     */
+    public EnableTouchContact(): TouchComponent;
 }
 
 declare class control
