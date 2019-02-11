@@ -109,7 +109,7 @@ declare global
     interface SpriteRender { }
     interface GraphicRaycaster { }
     
-    interface Selectable {
+    interface Selectable extends UIBehaviour {
         interactable: boolean;
     }
     

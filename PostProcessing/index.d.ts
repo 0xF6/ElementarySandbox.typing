@@ -121,5 +121,5 @@ interface PostProcessProfile extends ScriptableObject
     /**
      * Returns settings for a given effect type name.
      */
-     GetSetting(name: string): PostProcessEffectSettings & DepthOfField;
+     GetSetting<T>(name: string): T;
 }
