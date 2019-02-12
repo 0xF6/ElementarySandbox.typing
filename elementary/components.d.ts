@@ -41,6 +41,7 @@ declare global
         particleColor: Color;
         Material2D: PhysicsMaterial2D;
         Sprite: Sprite;
+        Light: Light;
         Symbol: string;
         Mass: float;
 
