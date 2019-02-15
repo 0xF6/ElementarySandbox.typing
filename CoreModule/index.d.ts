@@ -41,7 +41,7 @@ declare global
          * Returns the component with name type if the game object has one attached, null if it doesn't.
          * @param type The type of Component to retrieve.
          */
-        GetComponent(type: string) : UComponent & PostProcessVolume & PhysicsComponent
+        GetComponent<T>(type: string) : T
 
         /**
          * Returns one active GameObject tagged tag. Returns undefined if no GameObject was found.
