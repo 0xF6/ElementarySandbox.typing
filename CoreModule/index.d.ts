@@ -70,6 +70,106 @@ declare global
         NameToLayer(layerName: string): int;
         GetMask(layerNames: string[]): int;
     }
+
+
+    interface QualitySettings extends UObject
+    {
+        currentLevel: QualityLevel;
+        pixelLightCount: int;
+        shadows: ShadowQuality;
+        shadowProjection: ShadowProjection;
+        shadowCascades: int;
+        shadowDistance: float;
+        shadowResolution: ShadowResolution;
+        shadowmaskMode: ShadowmaskMode;
+        shadowNearPlaneOffset: float;
+        shadowCascade2Split: float;
+        shadowCascade4Split: UVector3D;
+        lodBias: float;
+        anisotropicFiltering: AnisotropicFiltering;
+        masterTextureLimit: int;
+        maximumLODLevel: int;
+        particleRaycastBudget: int;
+        softParticles: boolean;
+        softVegetation: boolean;
+        vSyncCount: int;
+        antiAliasing: int;
+        asyncUploadTimeSlice: int;
+        asyncUploadBufferSize: int;
+        asyncUploadPersistentBuffer: boolean;
+        realtimeReflectionProbes: boolean;
+        billboardsFaceCameraPosition: boolean;
+        resolutionScalingFixedDPIFactor: float;
+        blendWeights: BlendWeights;
+        streamingMipmapsActive: boolean;
+        streamingMipmapsMemoryBudget: float;
+        streamingMipmapsRenderersPerFrame: int;
+        streamingMipmapsMaxLevelReduction: int;
+        streamingMipmapsAddAllCameras: boolean;
+        streamingMipmapsMaxFileIORequests: int;
+        maxQueuedFrames: int;
+        names: string[];
+        desiredColorSpace: ColorSpace;
+        activeColorSpace: ColorSpace;
+        IncreaseLevel(applyExpensiveChanges: boolean): void;
+        DecreaseLevel(applyExpensiveChanges: boolean): void;
+        SetQualityLevel(index: int): void;
+        IncreaseLevel(): void;
+        DecreaseLevel(): void;
+        GetQualityLevel(): int;
+        SetQualityLevel(index: int, applyExpensiveChanges: boolean): void;
+    }
+    enum ColorSpace
+    {
+        Gamma = 0,
+        Linear = 1,
+        Uninitialized = -1,
+    }
+    enum BlendWeights
+    {
+        OneBone = 1,
+        TwoBones = 2,
+        FourBones = 4,
+    }
+    enum AnisotropicFiltering
+    {
+        Disable = 0,
+        Enable = 1,
+        ForceEnable = 2,
+    }
+    enum ShadowmaskMode
+    {
+        Shadowmask = 0,
+        DistanceShadowmask = 1,
+    }
+    enum ShadowResolution
+    {
+        Low = 0,
+        Medium = 1,
+        High = 2,
+        VeryHigh = 3,
+    }
+    enum ShadowProjection
+    {
+        CloseFit = 0,
+        StableFit = 1,
+    }
+    enum ShadowQuality
+    {
+        Disable = 0,
+        HardOnly = 1,
+        All = 2,
+    }
+    enum QualityLevel
+    {
+        Fastest = 0,
+        Fast = 1,
+        Simple = 2,
+        Good = 3,
+        Beautiful = 4,
+        Fantastic = 5,
+    }
+
     interface Renderer extends UComponent {
         lightProbeAnchor: UTransform;
         castShadows: boolean;
