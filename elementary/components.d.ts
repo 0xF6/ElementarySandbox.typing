@@ -124,7 +124,7 @@ declare global
         animation: ElementaryAnimationModule;
         info: ElementaryInfoModule;
         audio: ElementaryAudio;
-        setting: ElementarySettting;
+        setting(): ElementarySettting;
         TaskManager(): YieldWaiter;
 
 
@@ -161,16 +161,16 @@ declare global
 
 
     interface ElementarySettting {
-        setInt(key: string, value: int): void;
-        getInt(key: string, defaultValue?: int): int;
-        setFloat(key: string, value: float): void;
-        getFloat(key: string, defaultValue?: float): float;
-        setString(key: string, value: string): void;
-        getString(key: string, defaultValue?: string): string;
-        hasKey(key: string): boolean;
-        deleteKey(key: string): void;
-        deleteAll(): void;
-        save(): void;
+        IsUseCache: boolean;
+        IsLoadFromCache: boolean;
+        IsSaveUnpackedCache: boolean;
+        PhysicsEngine: string;
+        LightLevel: int;
+
+        /**
+         * Save setting to disk
+         */
+        Save(): void;
     }
 
     interface UIScriptableComponent extends ElementaryBehaviour {
