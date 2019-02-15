@@ -1,7 +1,49 @@
 declare global
 {
     type PressedButton = "Left" | "Right" | "Middle";
-
+    interface Toggle extends Selectable
+    {
+        onValueChanged: UnityEvent;
+        isOn: boolean;
+        LayoutComplete(): void;
+        GraphicUpdateComplete(): void;
+        OnPointerClick(eventData: PointerEventData): void;
+    }
+    interface Image extends Selectable
+    {
+        sprite: Sprite;
+    }
+    interface OptionData
+    {
+        text: string;
+        image: Sprite;
+    }
+    interface Dropdown extends Selectable
+    {
+        template: RectTransform;
+        captionText: Text;
+        captionImage: Image;
+        itemText: Text;
+        itemImage: Image;
+        options: OptionData[];
+        value: int;
+        RefreshShownValue(): void;
+        AddOptions(options: OptionData[]): void;
+        AddOptions(options: string[]): void;
+        AddOptions(options: Sprite[]): void;
+        ClearOptions(): void;
+        Show(): void;
+        Hide(): void;
+    }
+    
+    interface Slider extends Selectable
+    {
+        minValue: float;
+        maxValue: float;
+        wholeNumbers: boolean;
+        value: float;
+        normalizedValue: float;
+    }
     /**
      * Element that can be used for screen rendering.
      */
