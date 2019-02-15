@@ -14,7 +14,7 @@ declare var Physics2D: ElementaryPhysics2D;
 declare var game: ElementaryGame;
 declare var light: ElementaryLight;
 declare var ui: ElementaryUI;
-
+declare var Quality: QualitySettings;
 declare var sys: ElementarySystem;
 
 
