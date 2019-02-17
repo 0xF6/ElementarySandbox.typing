@@ -1,5 +1,5 @@
 /// <reference path="./components.d.ts" />
-
+/// <reference path="./sys.d.ts" />
 declare var none: "empty";
 declare var yes: true;
 declare var no: false;

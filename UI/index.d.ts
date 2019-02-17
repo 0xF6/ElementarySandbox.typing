@@ -28,7 +28,7 @@ declare global
         options: OptionData[];
         value: int;
         RefreshShownValue(): void;
-        AddOptions(options: string[]): void;
+        AddOptions(options: List<string>): void;
         ClearOptions(): void;
         Show(): void;
         Hide(): void;

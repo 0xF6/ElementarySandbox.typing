@@ -1,13 +1,18 @@
-declare type float = number;
-declare type long = number;
-declare type int = number;
-declare type ulong = number;
-declare type uint = number;
-declare type short = number;
-declare type ushort = number;
-declare type decimal = number;
+declare global {
+    type float = number;
+    type long = number;
+    type int = number;
+    type ulong = number;
+    type uint = number;
+    type short = number;
+    type ushort = number;
+    type decimal = number;
 
-/**
- * System Type
- */
-interface Type { }
+    /**
+     * System Type
+     */
+    interface Type { }
+
+    interface List<T> extends Array<T> {}
+}
+export { }
