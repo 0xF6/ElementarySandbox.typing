@@ -21,9 +21,9 @@ declare global
     interface Dropdown extends Selectable
     {
         template: RectTransform;
-        captionText: Text;
+        captionText: UText;
         captionImage: Image;
-        itemText: Text;
+        itemText: UText;
         itemImage: Image;
         options: OptionData[];
         value: int;

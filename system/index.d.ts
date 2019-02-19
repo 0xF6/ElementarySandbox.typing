@@ -14,5 +14,14 @@ declare global {
     interface Type { }
 
     interface List<T> extends Array<T> {}
+
+    interface Enum
+    {
+        value__: int;
+        Equals(o): boolean,
+        GetHashCode(): int;
+        ToString(): string;
+        HasFlag(flag: int): boolean;
+    }
 }
 export { }
