@@ -243,7 +243,7 @@ declare global
         /**
          * Current Login
          */
-        login: string;
+        Login: string;
         /**
          * OnConnected Discord Event
          */
