@@ -13,7 +13,7 @@
 Remark:     
   `This project is part of a closed project ElementarySandbox`
 
-
+[![Maintainability](https://api.codeclimate.com/v1/badges/ff1b4ce4b0098058f271/maintainability)](https://codeclimate.com/github/0xF6/ElementarySandbox.typing/maintainability)
 
 
     
