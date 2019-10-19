@@ -1,7 +1,7 @@
 declare global {
-    type float = number;
+    type f32 = number;
     type long = number;
-    type int = number;
+    type i32 = number;
     type ulong = number;
     type uint = number;
     type short = number;
@@ -17,11 +17,13 @@ declare global {
 
     interface Enum
     {
-        value__: int;
+        value__: i32;
         Equals(o): boolean,
-        GetHashCode(): int;
+        GetHashCode(): i32;
         ToString(): string;
-        HasFlag(flag: int): boolean;
+        HasFlag(flag: i32): boolean;
     }
 }
+type int = number;
+
 export { }

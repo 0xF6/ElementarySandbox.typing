@@ -36,7 +36,7 @@ declare global
         /**
          * The layer the game object is in.
          */
-        layer: int;
+        layer: i32;
         /**
          * Returns the component with name type if the game object has one attached, null if it doesn't.
          * @param type The type of Component to retrieve.
@@ -65,59 +65,59 @@ declare global
         AddComponent(t: Type): UComponent;
     }
     interface LayerMask {
-        value: int;
-        LayerToName(layer: int): string;
-        NameToLayer(layerName: string): int;
-        GetMask(layerNames: string[]): int;
+        value: i32;
+        LayerToName(layer: i32): string;
+        NameToLayer(layerName: string): i32;
+        GetMask(layerNames: string[]): i32;
     }
 
 
     interface QualitySettings extends UObject
     {
         currentLevel: QualityLevel;
-        pixelLightCount: int;
+        pixelLightCount: i32;
         shadows: ShadowQuality;
         shadowProjection: ShadowProjection;
-        shadowCascades: int;
-        shadowDistance: float;
+        shadowCascades: i32;
+        shadowDistance: f32;
         shadowResolution: ShadowResolution;
         shadowmaskMode: ShadowmaskMode;
-        shadowNearPlaneOffset: float;
-        shadowCascade2Split: float;
+        shadowNearPlaneOffset: f32;
+        shadowCascade2Split: f32;
         shadowCascade4Split: UVector3D;
-        lodBias: float;
+        lodBias: f32;
         anisotropicFiltering: AnisotropicFiltering;
-        masterTextureLimit: int;
-        maximumLODLevel: int;
-        particleRaycastBudget: int;
+        masterTextureLimit: i32;
+        maximumLODLevel: i32;
+        particleRaycastBudget: i32;
         softParticles: boolean;
         softVegetation: boolean;
-        vSyncCount: int;
-        antiAliasing: int;
-        asyncUploadTimeSlice: int;
-        asyncUploadBufferSize: int;
+        vSyncCount: i32;
+        antiAliasing: i32;
+        asyncUploadTimeSlice: i32;
+        asyncUploadBufferSize: i32;
         asyncUploadPersistentBuffer: boolean;
         realtimeReflectionProbes: boolean;
         billboardsFaceCameraPosition: boolean;
-        resolutionScalingFixedDPIFactor: float;
+        resolutionScalingFixedDPIFactor: f32;
         blendWeights: BlendWeights;
         streamingMipmapsActive: boolean;
-        streamingMipmapsMemoryBudget: float;
-        streamingMipmapsRenderersPerFrame: int;
-        streamingMipmapsMaxLevelReduction: int;
+        streamingMipmapsMemoryBudget: f32;
+        streamingMipmapsRenderersPerFrame: i32;
+        streamingMipmapsMaxLevelReduction: i32;
         streamingMipmapsAddAllCameras: boolean;
-        streamingMipmapsMaxFileIORequests: int;
-        maxQueuedFrames: int;
+        streamingMipmapsMaxFileIORequests: i32;
+        maxQueuedFrames: i32;
         names: string[];
         desiredColorSpace: ColorSpace;
         activeColorSpace: ColorSpace;
         IncreaseLevel(applyExpensiveChanges: boolean): void;
         DecreaseLevel(applyExpensiveChanges: boolean): void;
-        SetQualityLevel(index: int): void;
+        SetQualityLevel(index: i32): void;
         IncreaseLevel(): void;
         DecreaseLevel(): void;
-        GetQualityLevel(): int;
-        SetQualityLevel(index: int, applyExpensiveChanges: boolean): void;
+        GetQualityLevel(): i32;
+        SetQualityLevel(index: i32, applyExpensiveChanges: boolean): void;
     }
     enum ColorSpace
     {
@@ -183,37 +183,37 @@ declare global
         motionVectorGenerationMode: MotionVectorGenerationMode;
         lightProbeUsage: LightProbeUsage;
         reflectionProbeUsage: ReflectionProbeUsage;
-        renderingLayerMask: int;
-        rendererPriority: int;
+        renderingLayerMask: i32;
+        rendererPriority: i32;
         sortingLayerName: string;
-        sortingLayerID: int;
-        sortingOrder: int;
+        sortingLayerID: i32;
+        sortingOrder: i32;
         allowOcclusionWhenDynamic: boolean;
         isPartOfStaticBatch: boolean;
         lightProbeProxyVolumeOverride: UGameObject;
         probeAnchor: UTransform;
-        lightmapIndex: int;
-        realtimeLightmapIndex: int;
+        lightmapIndex: i32;
+        realtimeLightmapIndex: i32;
         HasPropertyBlock(): boolean;
     }
     interface AudioClip extends UObject {
         /**
          * The length of the audio clip in seconds. (Read Only)
          */
-        readonly length: float;
+        readonly length: f32;
     
         /**
          * The length of the audio clip in samples. (Read Only)
          */
-        readonly samples: int;
+        readonly samples: i32;
         /**
          * The number of channels in the audio clip. (Read Only)
          */
-        readonly channels: int;
+        readonly channels: i32;
         /**
          * The sample frequency of the clip in Hertz. (Read Only)
          */
-        readonly frequency: int;
+        readonly frequency: i32;
         /**
          * Returns true if this audio clip is ambisonic (read-only).
          */
@@ -259,14 +259,14 @@ declare global
 
     interface RectTransform extends UTransform
     {
-        anchorMin: UVector2D;
-        anchorMax: UVector2D;
-        anchoredPosition: UVector2D;
-        sizeDelta: UVector2D;
-        pivot: UVector2D;
+        anchorMin: Vector2D;
+        anchorMax: Vector2D;
+        anchoredPosition: Vector2D;
+        sizeDelta: Vector2D;
+        pivot: Vector2D;
         anchoredPosition3D: UVector3D;
-        offsetMin: UVector2D;
-        offsetMax: UVector2D;
+        offsetMin: Vector2D;
+        offsetMax: Vector2D;
         ForceUpdateRectTransforms(): void;
         GetLocalCorners(fourCornersArray: UVector3D[]): void;
         GetWorldCorners(fourCornersArray: UVector3D[]): void;
@@ -275,21 +275,21 @@ declare global
     interface Sprite extends UObject
     {
         bounds: Bounds;
-        pixelsPerUnit: float;
-        pivot: UVector2D;
+        pixelsPerUnit: f32;
+        pivot: Vector2D;
         packed: boolean;
-        textureRectOffset: UVector2D;
-        vertices: UVector2D[];
-        uv: UVector2D[];
-        GetPhysicsShapeCount(): int;
-        GetPhysicsShapePointCount(shapeIdx: int): int;
+        textureRectOffset: Vector2D;
+        vertices: Vector2D[];
+        uv: Vector2D[];
+        GetPhysicsShapeCount(): i32;
+        GetPhysicsShapePointCount(shapeIdx: i32): i32;
     }
     interface SpriteRenderer extends Renderer
     {
         sprite: Sprite;
         drawMode: SpriteDrawMode;
-        size: UVector2D;
-        adaptiveModeThreshold: float;
+        size: Vector2D;
+        adaptiveModeThreshold: f32;
         tileMode: SpriteTileMode;
         color: Color;
         maskInteraction: SpriteMaskInteraction;
@@ -306,7 +306,7 @@ declare global
         /**
          * Invokes the method methodName in time seconds.
          */
-        Invoke(name: string, t: float);
+        Invoke(name: string, t: f32);
         /**
          * Starts a coroutine named methodName.
          */
@@ -318,10 +318,10 @@ declare global
         stringify(o: object): string;
     }
     interface Color {
-        r: float;
-        b: float;
-        g: float;
-        a: float;
+        r: f32;
+        b: f32;
+        g: f32;
+        a: f32;
     }
     interface UnityEvent {
         AddListener(x: () => void);
@@ -332,16 +332,16 @@ declare global
     interface Font extends UObject {
         fontNames: string[];
         dynamic: boolean;
-        ascent: int;
-        fontSize: int;
-        lineHeight: int;
-        CreateDynamicFontFromOSFont(fontname: string, size: int): Font;
-        CreateDynamicFontFromOSFont(fontnames: string[], size: int): Font;
-        GetMaxVertsForString(str: string): int;
+        ascent: i32;
+        fontSize: i32;
+        lineHeight: i32;
+        CreateDynamicFontFromOSFont(fontname: string, size: i32): Font;
+        CreateDynamicFontFromOSFont(fontnames: string[], size: i32): Font;
+        GetMaxVertsForString(str: string): i32;
         HasCharacter(c: string /* System.Char */): boolean;
         GetOSInstalledFontNames(): string[];
-        RequestCharactersInTexture(characters: string, size: int, style: FontStyle): void;
-        RequestCharactersInTexture(characters: string, size: int): void;
+        RequestCharactersInTexture(characters: string, size: i32, style: FontStyle): void;
+        RequestCharactersInTexture(characters: string, size: i32): void;
         RequestCharactersInTexture(characters: string): void;
     }
     interface UText {
@@ -350,22 +350,22 @@ declare global
     }
     interface UTime 
     {
-        timeSinceLevelLoad: float;
-        deltaTime: float;
-        fixedTime: float;
-        unscaledTime: float;
-        fixedUnscaledTime: float;
-        unscaledDeltaTime: float;
-        fixedUnscaledDeltaTime: float;
-        fixedDeltaTime: float;
-        maximumDeltaTime: float;
-        smoothDeltaTime: float;
-        maximumParticleDeltaTime: float;
-        timeScale: float;
-        frameCount: int;
-        renderedFrameCount: int;
-        realtimeSinceStartup: float;
-        captureFramerate: int;
+        timeSinceLevelLoad: f32;
+        deltaTime: f32;
+        fixedTime: f32;
+        unscaledTime: f32;
+        fixedUnscaledTime: f32;
+        unscaledDeltaTime: f32;
+        fixedUnscaledDeltaTime: f32;
+        fixedDeltaTime: f32;
+        maximumDeltaTime: f32;
+        smoothDeltaTime: f32;
+        maximumParticleDeltaTime: f32;
+        timeScale: f32;
+        frameCount: i32;
+        renderedFrameCount: i32;
+        realtimeSinceStartup: f32;
+        captureFramerate: i32;
         inFixedTimeStep: boolean;
     }
     interface UCamera extends UBehaviour
@@ -373,15 +373,15 @@ declare global
         /**
          * The near clipping plane distance.
          */
-         nearClipPlane: float;
+         nearClipPlane: f32;
         /**
          * The far clipping plane distance.
          */
-         farClipPlane: float;
+         farClipPlane: f32;
         /**
          * The field of view of the camera in degrees.
          */
-         fieldOfView: float;
+         fieldOfView: f32;
         /**
          * The rendering path that should be used, if possible.
          */
@@ -416,7 +416,7 @@ declare global
         /**
          * Camera's half-size when in orthographic mode.
          */
-         orthographicSize: float;
+         orthographicSize: f32;
         /**
          * Is the camera orthographic (true) or perspective (false)?
          */
@@ -442,11 +442,11 @@ declare global
         /**
          * Camera's depth in the camera rendering order.
          */
-         depth: float;
+         depth: f32;
         /**
          * The aspect ratio (width divided by height).
          */
-         aspect: float;
+         aspect: f32;
         /**
          * Revert the aspect ratio to the screen's aspect ratio.
          */
@@ -454,11 +454,11 @@ declare global
         /**
          * This is used to render parts of the Scene selectively.
          */
-         cullingMask: int;
+         cullingMask: i32;
         /**
          * Mask to select which layers can trigger events on the camera.
          */
-         eventMask: int;
+         eventMask: i32;
         /**
          * How to perform per-layer culling for a Camera.
          */
@@ -470,7 +470,7 @@ declare global
         /**
          * Per-layer culling distances.
          */
-         layerCullDistances: float[];
+         layerCullDistances: f32[];
         /**
          * Whether or not the Camera will use occlusion culling during rendering.
          */
@@ -498,12 +498,12 @@ declare global
         /**
          * The Intensity of a light is multiplied with the Light color.
          */
-         intensity: float;
+         intensity: f32;
     }
     
     interface URandom
     {
-        seed: int;
+        seed: i32;
         Range(min: number, max: number): number;
     }
     
@@ -514,13 +514,13 @@ declare global
           anyKeyDown: boolean;
           inputString: string;
           mousePosition: UVector3D;
-          mouseScrollDelta: UVector2D;
+          mouseScrollDelta: Vector2D;
           compositionString: string;
           imeIsSelected: boolean;
-          compositionCursorPos: UVector2D;
+          compositionCursorPos: Vector2D;
           eatKeyPressOnTextFieldFocus: boolean;
           mousePresent: boolean;
-          touchCount: int;
+          touchCount: i32;
           touchPressureSupported: boolean;
           stylusTouchSupported: boolean;
           touchSupported: boolean;
@@ -528,16 +528,16 @@ declare global
           isGyroAvailable: boolean;
           acceleration: UVector3D;
           compensateSensors: boolean;
-          accelerationEventCount: int;
+          accelerationEventCount: i32;
           backButtonLeavesApp: boolean;
-          GetAxis(axisName: string): float;
-          GetAxisRaw(axisName: string): float;
+          GetAxis(axisName: string): f32;
+          GetAxisRaw(axisName: string): f32;
           GetButton(buttonName: string): boolean;
           GetButtonDown(buttonName: string): boolean;
           GetButtonUp(buttonName: string): boolean;
-          GetMouseButton(button: int): boolean;
-          GetMouseButtonDown(button: int): boolean;
-          GetMouseButtonUp(button: int): boolean;
+          GetMouseButton(button: i32): boolean;
+          GetMouseButtonDown(button: i32): boolean;
+          GetMouseButtonUp(button: i32): boolean;
           ResetInputAxes(): void;
           IsJoystickPreconfigured(joystickName: string): boolean;
           GetJoystickNames(): string[];
@@ -547,23 +547,23 @@ declare global
     }
     interface CPU
     {
-         readonly Count: int;
-         readonly Frequency: int;
+         readonly Count: i32;
+         readonly Frequency: i32;
          readonly Type: string;
     }
     interface GPU
     {
-         readonly ShaderLevel: int;
+         readonly ShaderLevel: i32;
          readonly MultiThreaded: boolean;
          readonly DeviceName: string;
          readonly DeviceType: GraphicsDeviceType;
-         readonly MemorySize: int;
+         readonly MemorySize: i32;
     }
     interface SpriteRenderer extends Renderer {
         sprite: Sprite;
         drawMode: SpriteDrawMode;
-        size: UVector2D;
-        adaptiveModeThreshold: float;
+        size: Vector2D;
+        adaptiveModeThreshold: f32;
         tileMode: SpriteTileMode;
         color: Color;
         maskInteraction: SpriteMaskInteraction;
@@ -628,26 +628,26 @@ declare global
          * @param obj The object to destroy.
          * @param time The optional amount of time to delay before destroying the object.
          */
-        Destroy(obj: UObject, time: float);
+        Destroy(obj: UObject, time: f32);
     }
     interface UVector {
-        kEpsilon: float;
-        kEpsilonNormalSqrt: float;
+        kEpsilon: f32;
+        kEpsilonNormalSqrt: f32;
     }
     interface UVector3D extends UVector {
-        x: float;
-        y: float;
-        z: float;
+        x: f32;
+        y: f32;
+        z: f32;
     }
-    interface UVector2D extends UVector {
-        x: float;
-        y: float;
+    interface Vector2D extends UVector {
+        x: f32;
+        y: f32;
     }
     interface UQuaternion {
-        x: float;
-        y: float;
-        z: float;
-        w: float;
+        x: f32;
+        y: f32;
+        z: f32;
+        w: f32;
     }
     interface UTransform {
         /**
