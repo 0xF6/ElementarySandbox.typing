@@ -1,0 +1,9 @@
+{
+  "name": "@esb/types",
+  "version": "0.55.0",
+  "description": "Type declaration for ESB mods API",
+  "main": "index.js",
+  "repository": "https://github.com/0xF6/ElementarySandbox.typing.git",
+  "author": "Yuuki Wesp <ls-micro@ya.ru>",
+  "license": "MIT"
+}
